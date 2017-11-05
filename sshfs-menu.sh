@@ -75,7 +75,8 @@ MAINMENU(){
 
   CHOICE=$(whiptail --title "Menu example" --menu "Choose an option" $LINES $COLUMNS $(( $LINES - 8 )) \
   "MOUNT" "Mount a remote sshfs to a local folder." \
-  "UNMOUNT" "Unount a remote sshfs from a local folder." 3>&1 1>&2 2>&3)
+  "UNMOUNT" "Unount a remote sshfs from a local folder." \
+  "EXIT" "Exit this menu" 3>&1 1>&2 2>&3)
   if [ $CHOICE = MOUNT ]; then
     echo "User selected " $CHOICE
     MOUNT
@@ -85,6 +86,10 @@ MAINMENU(){
     echo "User selected " $CHOICE
     UNMOUNT
     MAINMENU
+  fi
+  if [ $CHOICE = EXIT ]; then
+    echo "User selected " $CHOICE
+    exit
   fi
 }
 
