@@ -63,6 +63,7 @@ UNMOUNT(){
     echo "User selected Ok and entered " $LOCLOCATION
     fusermount -u $LOCLOCATION
     whiptail --title "Done unmounting" --msgbox "Done unmounting $LOCLOCATION. You must hit OK to continue." 8 78
+    MAINMENU
   else
     echo "User selected Cancel."
     MAINMENU
