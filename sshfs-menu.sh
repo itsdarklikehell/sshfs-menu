@@ -38,6 +38,7 @@ MOUNT(){
     exitstatus=$?
     if [ $exitstatus = 0 ]; then
       echo "User selected Ok and entered " $LOCLOCATION
+      mkdir -P $LOCLOCATION
     else
       echo "User selected Cancel."
     fi
