@@ -1,5 +1,9 @@
 #!/bin/bash
-sudo apt-get install sshfs
+sudo apt-get install sshfs git
+cd
+git clone https://github.com/itsdarklikehell/sshfs-menu
+cd sshfs-menu
+chmod +x sshfs-menu.sh
 sudo ln -s $PWD/sshfs-menu.sh /usr/local/bin/sshfs-menu
 MOUNT(){
   HOSTNAME=$(whiptail --inputbox "What is the hostname or ip address you would like to connect to?" 8 78 192.168.1.2 --title "Hostname" 3>&1 1>&2 2>&3)
