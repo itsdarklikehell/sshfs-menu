@@ -71,14 +71,10 @@ MAINMENU(){
   if [ $CHOICE = MOUNT ]; then
     echo "User selected " $CHOICE
     MOUNT
-  else
-    echo "User selected Cancel."
   fi
   if [ $CHOICE = UNMOUNT ]; then
     echo "User selected " $CHOICE
     UNMOUNT
-  else
-    echo "User selected Cancel."
   fi
 }
 
