@@ -20,7 +20,7 @@ MOUNT(){
       echo "User selected Ok and entered " $USERNAME
     else
       echo "User selected Cancel."
-    MAINMENU
+      MAINMENU
     fi
     #echo "(Exit status was $exitstatus)"
     REMLOCATION=$(whiptail --inputbox "What is the remote location you would like to connect to?" 8 78 / --title "Remote Location" 3>&1 1>&2 2>&3)
@@ -31,7 +31,7 @@ MOUNT(){
       echo "User selected Ok and entered " $REMLOCATION
     else
       echo "User selected Cancel."
-    MAINMENU
+      MAINMENU
     fi
     #echo "(Exit status was $exitstatus)"
     LOCLOCATION=$(whiptail --inputbox "What is the local location you would like to mount the remote location to?" 8 78 /home/$USER/sshfs/pc-local/ --title "Local location" 3>&1 1>&2 2>&3)
@@ -43,11 +43,12 @@ MOUNT(){
       mkdir -p $LOCLOCATION
     else
       echo "User selected Cancel."
-    MAINMENU
+      MAINMENU
     fi
     #echo "(Exit status was $exitstatus)"
     sshfs $USERNAME@$HOSTNAME:$REMLOCATION $LOCLOCATION -o idmap=user
     whiptail --title "Done mounting" --msgbox "Done mounting $USERNAME@$HOSTNAME:/ to $LOCLOCATION. You must hit OK to continue." 8 78
+    MAINMENU
   else
     echo "User selected Cancel."
     MAINMENU
@@ -78,10 +79,12 @@ MAINMENU(){
   if [ $CHOICE = MOUNT ]; then
     echo "User selected " $CHOICE
     MOUNT
+    MAINMENU
   fi
   if [ $CHOICE = UNMOUNT ]; then
     echo "User selected " $CHOICE
     UNMOUNT
+    MAINMENU
   fi
 }
 
