@@ -13,6 +13,10 @@ bash <(curl -Ls https://github.com/itsdarklikehell/sshfs-menu/raw/master/sshfs-m
 ## Generic
 
 git clone https://github.com/itsdarklikehell/sshfs-menu
+
 cd sshfs-menu
+
 chmod +x sshfs-menu.sh
+
 ./sshfs-menu.sh
+
