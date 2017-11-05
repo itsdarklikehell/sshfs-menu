@@ -70,17 +70,17 @@ MAINMENU(){
   "MOUNT" "Mount a remote sshfs to a local folder." \
   "UNMOUNT" "Unount a remote sshfs from a local folder." \
   "EXIT" "Exit this menu" 3>&1 1>&2 2>&3)
-  if [ $CHOICE = MOUNT ]; then
+  if [[ $CHOICE = MOUNT ]]; then
     echo "User selected " $CHOICE
     MOUNT
     MAINMENU
   fi
-  if [ $CHOICE = UNMOUNT ]; then
+  if [[ $CHOICE = UNMOUNT ]]; then
     echo "User selected " $CHOICE
     UNMOUNT
     MAINMENU
   fi
-  if [ $CHOICE = EXIT ]; then
+  if [[ $CHOICE = EXIT ]]; then
     echo "User selected " $CHOICE
     exit
   fi
