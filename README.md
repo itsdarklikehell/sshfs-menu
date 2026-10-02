@@ -1,24 +1,45 @@
 # sshfs-menu
 
-This is a menu for mounting file systems over ssh using sshfs.
+Interactief menu voor het mounten en unmounten van bestandssystemen via SSHFS.
 
-This is basically a script you would want to run to mount remote filesystems to a local folder using sshfs.
+## Installatie
 
-# Installation
-
-## Using curl
-
-bash <(curl -Ls https://github.com/itsdarklikehell/sshfs-menu/raw/master/sshfs-menu.sh)
-
-## Generic
-
-git clone https://github.com/itsdarklikehell/sshfs-menu
-
+```bash
+git clone https://github.com/itsdarklikehell/sshfs-menu.git
 cd sshfs-menu
-
 chmod +x sshfs-menu.sh
+```
 
+## Gebruik
+
+```bash
+# Interactief menu
 ./sshfs-menu.sh
+
+# Direct mounten
+./sshfs-menu.sh mount
+
+# Direct unmounten
+./sshfs-menu.sh unmount
+```
+
+## Vereisten
+
+- `whiptail` — voor de interactieve menu's
+- `sshfs` — voor het mounten van remote bestandssystemen
+- `fusermount` — voor het unmounten
+
+```bash
+sudo apt-get install whiptail sshfs
+```
+
+## Features
+
+- Interactief menu met whiptail
+- CLI argumenten voor directe mount/unmount
+- Automatische dependency-check
+- Moderne SSHFS opties (reconnect, keepalive)
+- Nederlandse interface
 
 ---
 
