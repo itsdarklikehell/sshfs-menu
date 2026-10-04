@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 sudo apt-get install sshfs git
 cd
 git clone https://github.com/itsdarklikehell/sshfs-menu
