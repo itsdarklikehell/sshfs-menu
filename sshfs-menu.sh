@@ -1,4 +1,20 @@
 #!/bin/bash
+
+set -euo pipefail
+
+# Logging
+LOG_FILE="${LOG_FILE:-/tmp/sshfs-menu.log}"
+log() { echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOG_FILE"; }
+
+# DRY_RUN guard
+DRY_RUN="${DRY_RUN:-}"
+maybe_mutate() {
+  if [ -n "$DRY_RUN" ]; then
+    log "  [DRY-RUN] Would: $*"
+    return 0
+  fi
+  "$@"
+}
 sudo apt-get install sshfs git
 cd
 git clone https://github.com/itsdarklikehell/sshfs-menu
